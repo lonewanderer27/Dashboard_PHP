@@ -56,36 +56,32 @@ if (!isset($_GET['session_expired']) && isset($_SESSION[$EMAIL])) {
           crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
+    <link href="styles.css" rel="stylesheet">
 </head>
-<body>
-
+<body class="gradient-custom d-flex justify-content-center align-items-center mt-5">
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-    <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card border-0 shadow rounded-3 my-5">
-                <div class="card-body p-4 p-sm-5">
+    <div class="card">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item text-center">
+                <a class="nav-link active btl" href="login.php" aria-selected="true">Login</a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link btr" href="signup.php" aria-selected="false">Signup</a>
+            </li>
+        </ul>
+        <div>
+
+            <div class="tab-pane fade show active" role="tabpanel">
+                <div class="form px-4 pt-5">
                     <?php include('components/alert.php') ?>
-                    <h3 class="card-title text-center mb-5 fw-light">Log In</h3>
-                    <form>
-                        <div class="form-floating mb-3">
-                            <input name="email" type="email" class="form-control" id="floatingInput"
-                                   placeholder="name@example.com" required>
-                            <label for="floatingInput">Email address</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="password" type="password" class="form-control" id="floatingPassword"
-                                   placeholder="Password" required>
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <div class="d-grid">
-                            <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold" type="submit">Log
-                                in
-                            </button>
-                        </div>
-                        <div class="mt-3 text-center">
-                            <p>Don't have an account? <a href="signup.php">Sign up</a></p>
-                        </div>
-                    </form>
+                    <input type="text" name="email" class="form-control" placeholder="Email">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <div class="d-grid">
+                        <button class="btn btn-dark" type="submit">Login</button>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <p>Don't have an account? <a href="signup.php">Sign up</a></p>
+                    </div>
                 </div>
             </div>
         </div>
