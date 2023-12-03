@@ -1,7 +1,0 @@
-name: dashboard
-recipe: lamp
-services:
-  phpmyadmin:
-    type: phpmyadmin
-config:
-  webroot: .
