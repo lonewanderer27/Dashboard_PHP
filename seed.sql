@@ -5,7 +5,6 @@ CREATE DATABASE records;
 CREATE TABLE `users`
 (
     `id`   INT AUTO_INCREMENT PRIMARY KEY,
-    `fullname` TEXT,
     `password` TEXT,
     `email`    TEXT,
     `phone`    TEXT,
