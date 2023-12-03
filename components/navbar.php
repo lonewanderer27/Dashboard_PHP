@@ -18,8 +18,8 @@
                     </a>
                     <!-- Here's the magic. Add the .animate and .slideIn classes to your .dropdown-menu and you're all set! -->
                     <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../profile.php">Profile</a>
-                        <div class="dropdown-divider"></div>
+<!--                        <a class="dropdown-item" href="../profile.php">Profile</a>-->
+<!--                        <div class="dropdown-divider"></div>-->
                         <a class="dropdown-item" href="../index.php?logout=true">Logout</a>
                     </div>
                 </li>
