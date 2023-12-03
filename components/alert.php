@@ -14,7 +14,7 @@ global $cn, $AD_EMAIL, $AD_PASSWORD;
     </div>
 <?php elseif(isset($_GET['user_exists'])): ?>
     <div class="alert alert-danger alert-dismissible fade show my-3" role="alert">
-        User already exists. Please login.
+        User already exists. Please use a different email.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <?php elseif(isset($_GET['not_approved'])): ?>
