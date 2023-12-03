@@ -79,8 +79,6 @@ if (isset($id)) {
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css"/>
-    <script defer src="./script.js"></script>
 </head>
 <body>
 <?php include('components/navbar.php') ?>
