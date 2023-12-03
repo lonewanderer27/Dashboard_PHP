@@ -17,11 +17,9 @@ if ($user["role"] == $ADMIN) {
             <thead>
             <tr>
                 <th>EmpID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Full Name</th>
                 <th>Job Title</th>
                 <th>Email</th>
-                <th>Phone</th>
                 <?php if ($admin): ?>
                     <th>Action</th>
                 <?php endif ?>
@@ -30,11 +28,9 @@ if ($user["role"] == $ADMIN) {
             <?php while ($row = $rs->fetch_assoc()): ?>
                 <tr>
                     <td><?= $row['EmployeeID'] ?></td>
-                    <td><?= $row['EmployeeFN'] ?></td>
-                    <td><?= $row['EmployeeLN'] ?></td>
+                    <td><?= $row["EmployeeFN"] ?> <?= $row['EmployeeLN'] ?></td>
                     <td><?= $row['JobTitle'] ?></td>
                     <td><?= $row['EmployeeEmail'] ?></td>
-                    <td><?= $row['EmployeePhone'] ?></td>
                     <?php if ($admin): ?>
                         <td class="d-flex gap-2">
                             <a class="btn btn-outline-warning" href="?token=<?php echo $row['EmployeeID'] ?>">Edit</a>
