@@ -89,9 +89,9 @@ if (isset($id)) {
                 <?php include('components/alert.php') ?>
 
                 <?php if (isset($id)): ?>
-                    <h3 class="my-4">Update Employee</h3>
+                    <h3 class="my-4">Update Record</h3>
                 <?php else: ?>
-                    <h3 class="my-4">Add Employee</h3>
+                    <h3 class="my-4">Add Record</h3>
                 <?php endif; ?>
                 <form action="<?= $action ?>" method="POST" class="d-flex my-4">
                     <div class="d-flex flex-column">
