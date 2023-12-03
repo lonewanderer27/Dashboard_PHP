@@ -12,9 +12,9 @@ $USER = "user";
 $ADMIN = "admin";
 $FULLNAME = "fullname";
 
-$AD_FULLNAME = "John Andrei";
-$AD_USERNAME = "andrei";
-$AD_EMAIL = "cabilijohnandrei@gmail.com";
+$AD_FULLNAME = "Adriane James";
+$AD_USERNAME = "ian";
+$AD_EMAIL = "adrianejames27@gmail.com";
 $AD_PASSWORD = "admin";
-$AD_PHONE = "(123) 456-7890";
-$AD_ADDRESS = "1234 Rizal Avenue, Barangay 56, Manila";
+$AD_PHONE = "09983082814";
+$AD_ADDRESS = "#3853 Macabulos St. Bangkal, Makati City";
