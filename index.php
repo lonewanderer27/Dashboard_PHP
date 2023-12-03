@@ -86,14 +86,15 @@ if (isset($id)) {
 <?php include('components/navbar.php') ?>
 <div class="container">
     <div class="row">
-        <div class="col-3">
-            <?php include('components/alert.php') ?>
-            <?php if(isset($id)): ?>
-                <h3 class="my-4">Update Employee</h3>
-            <?php else: ?>
-                <h3 class="my-4">Add Employee</h3>
-            <?php endif; ?>
-            <?php if ($user[$ROLE] === $ADMIN): ?>
+        <?php if ($user[$ROLE] === $ADMIN): ?>
+            <div class="col-3">
+                <?php include('components/alert.php') ?>
+
+                <?php if (isset($id)): ?>
+                    <h3 class="my-4">Update Employee</h3>
+                <?php else: ?>
+                    <h3 class="my-4">Add Employee</h3>
+                <?php endif; ?>
                 <form action="<?= $action ?>" method="POST" class="d-flex my-4">
                     <div class="d-flex flex-column">
                         <input type="text" name="fname" placeholder="Enter First Name" value="<?= $fname ?>" required
@@ -128,18 +129,23 @@ if (isset($id)) {
                     </div>
 
                 </form>
-            <?php endif; ?>
-        </div>
-        <div class="col-9">
-            <?php include('components/table.php') ?>
-        </div>
-    </div>
 
-</div>
-<script>
-    $(document).ready(function () {
-        $('#employeeList').DataTable();
-    });
-</script>
+            </div>
+        <?php endif; ?>
+        <?php if ($user[$ROLE] === $ADMIN): ?>
+            <div class="col-9">
+                <?php else: ?>
+            <div class="col-12">
+                <?php endif; ?>
+                <?php include('components/table.php') ?>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#employeeList').DataTable();
+        });
+    </script>
 </body>
 </html>
