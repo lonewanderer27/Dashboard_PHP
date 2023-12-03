@@ -72,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script defer src="script.js"></script>
 </head>
 <body>
-<?php include('components/alert.php') ?>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
     <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
