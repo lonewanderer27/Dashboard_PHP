@@ -1,69 +1,69 @@
-.gradient-custom {
-    /* fallback for old browsers */
-    background: #6a11cb;
-
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+body{
+    padding-top:4.2rem;
+    padding-bottom:4.2rem;
+    background:rgba(0, 0, 0, 0.76);
+}
+a{
+    text-decoration:none !important;
+}
+h1,h2,h3{
+    font-family: 'Kaushan Script', cursive;
+}
+.myform{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1rem;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 1.1rem;
+    outline: 0;
+    max-width: 500px;
+}
+.tx-tfm{
+    text-transform:uppercase;
+}
+.mybtn{
+    border-radius:50px;
 }
 
-.card{
-    width: 400px;
-    border:none;
+.login-or {
+    position: relative;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-
-.btr{
-    border-top-right-radius: 5px !important;
+.span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
 }
-
-
-.btl{
-    border-top-left-radius: 5px !important;
+.hr-or {
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
 }
-
-.btn-dark {
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-}
-
-.btn-dark:hover {
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-}
-
-.nav-pills{
-    display:table !important;
+.google {
+    color:#666;
     width:100%;
+    height:40px;
+    text-align:center;
+    outline:none;
+    border: 1px solid lightgrey;
 }
-
-.nav-pills .nav-link {
-    border-radius: 0px;
-    border-bottom: 1px solid #0d6efd40;
-
+form .error {
+    color: #ff0000;
 }
-
-.nav-item{
-    display: table-cell;
-    background: #0d6efd2e;
-}
-
-.form{
-    padding: 10px;
-}
-
-.form input{
-    margin-bottom: 12px;
-    border-radius: 3px;
-}
-
-.form input:focus{
-    box-shadow: none;
-}
-
-.form button{
-    margin-top: 20px;
-}
+#second{display:none;}

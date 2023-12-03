@@ -66,32 +66,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="styles.css" rel="stylesheet">
 </head>
 <body class="gradient-custom d-flex justify-content-center align-items-center mt-5">
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-    <div class="card">
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item text-center">
-                <a class="nav-link btl" href="login.php" aria-selected="true">Login</a>
-            </li>
-            <li class="nav-item text-center">
-                <a class="nav-link active btr" href="signup.php" aria-selected="false">Signup</a>
-            </li>
-        </ul>
-        <div>
-            <div class="tab-pane fade show active" role="tabpanel">
-                <div class="form px-4 pt-5">
-                    <?php include('components/alert.php') ?>
-                    <input type="email" name="email" class="form-control" placeholder="Email">
-                    <input type="password" name="password" class="form-control" placeholder="Password">
-                    <input type="phone" name="phone" class="form-control" placeholder="Phone">
-                    <input type="text" name="address" class="form-control" placeholder="Address">
-                    <div class="d-grid">
-                        <button class="btn btn-dark" type="submit">Signup</button>
-                    </div>
-                    <div class="mt-3 text-center">
-                        <p>Already have an account? <a href="login.php">Login</a></p>
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto">
+                <div id="first">
+                    <div class="myform form">
+                        <div class="logo mb-3">
+                            <div class="col-md-12 text-center">
+                                <h1>Signup</h1>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" name="email" class="form-control mt-2 mb-3" id="email"
+                                   aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Password</label>
+                            <input type="password" name="password" id="password" class="form-control mt-2 mb-3"
+                                   aria-describedby="emailHelp" placeholder="Enter Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Phone</label>
+                            <input type="number" name="phone" id="phone" class="form-control mt-2 mb-3"
+                                   aria-describedby="phoneHelp" placeholder="Enter Phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Address</label>
+                            <input type="text" name="address" id="address" class="form-control mt-2 mb-3"
+                                   aria-describedby="addressHelp" placeholder="Enter Address">
+                        </div>
+                        <div class="form-group mt-3">
+                            <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
+                        </div>
+                        <div class="col-md-12 text-center ">
+                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Signup</button>
+                        </div>
+                        <div class="form-group mt-4">
+                            <p class="text-center">Already have an account? <a href="login.php" id="login">Log in here</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
