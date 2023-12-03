@@ -85,43 +85,56 @@ if (isset($id)) {
 <body>
 <?php include('components/navbar.php') ?>
 <div class="container mt-5">
-    <?php include('components/alert.php') ?>
-    <?php if ($user[$ROLE] === $ADMIN): ?>
-        <form action="<?= $action ?>" method="POST" class="d-flex my-4">
-            <div class="d-flex">
-                <input type="text" name="fname" placeholder="Enter First Name" value="<?= $fname ?>" required
-                       class="form-control me-2">
-                <input type="text" name="lname" placeholder="Enter Last Name" value="<?= $lname ?>" required
-                       class="form-control me-2">
-                <input type="email" name="email" placeholder="Enter Email" value="<?= $email ?>" required
-                       class="form-control me-2">
-                <select type="text" name="jobTitle" required
-                        class="form-select me-2">
-                    <?php while ($rowj = $jobTitles->fetch_assoc()): ?>
-                        <option
-                                value="<?= $rowj['JobTitle'] ?>"
-                            <?= ($jobTitle == $rowj['JobTitle']) ? 'selected' : '' ?>>
-                            <?= $rowj['JobTitle'] ?>
-                        </option>
-                    <?php endwhile; ?>
-                </select>
-                <input type="text" name="phone" placeholder="Enter Contact No" value="<?= $phone ?>" required
-                       class="form-control me-2"><br/>
-            </div>
-            <div class="d-flex justify-content-center">
-                <button class="btn me-2 <?= (isset($id)) ? 'btn-warning' : 'btn-primary' ?>">
-                    <?= (isset($id)) ? 'UPDATE' : 'SAVE' ?>
-                </button>
-                <?php if (isset($id)): ?>
-                    <a class="btn btn-primary me-2" href="/index.php">
-                        BACK
-                    </a>
+    <div class="row">
+        <div class="col-9">
+            <?php include('components/table.php') ?>
+        </div>
+        <?php if ($user[$ROLE] === $ADMIN): ?>
+            <div class="col-3">
+                <?php if (!isset($id)): ?>
+                    <h3>Add Employee</h3>
+                <?php else: ?>
+                    <h3>Edit Employee</h3>
                 <?php endif; ?>
+                <form action="<?= $action ?>" method="POST" class="d-flex my-4">
+                    <?php include('components/alert.php') ?>
+                    <div class="d-flex flex-column">
+                        <input type="text" name="fname" placeholder="Enter First Name" value="<?= $fname ?>" required
+                               class="form-control mb-2">
+                        <input type="text" name="lname" placeholder="Enter Last Name" value="<?= $lname ?>" required
+                               class="form-control mb-2">
+                        <input type="email" name="email" placeholder="Enter Email" value="<?= $email ?>" required
+                               class="form-control mb-2">
+                        <select type="text" name="jobTitle" required
+                                class="form-select mb-2">
+                            <?php while ($rowj = $jobTitles->fetch_assoc()): ?>
+                                <option
+                                        value="<?= $rowj['JobTitle'] ?>"
+                                    <?= ($jobTitle == $rowj['JobTitle']) ? 'selected' : '' ?>>
+                                    <?= $rowj['JobTitle'] ?>
+                                </option>
+                            <?php endwhile; ?>
+                        </select>
+                        <input type="text" name="phone" placeholder="Enter Contact No" value="<?= $phone ?>" required
+                               class="form-control me-2"><br/>
+
+                        <div class="d-flex justify-content-center">
+                            <button class="btn me-2 <?= (isset($id)) ? 'btn-warning' : 'btn-primary' ?>">
+                                <?= (isset($id)) ? 'UPDATE' : 'SAVE' ?>
+                            </button>
+                            <?php if (isset($id)): ?>
+                                <a class="btn btn-primary me-2" href="/index.php">
+                                    BACK
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
-    <?php endif; ?>
+        <?php endif; ?>
+    </div>
 </div>
-<?php include('components/table.php') ?>
+
 <script>
     $(document).ready(function () {
         $('#employeeList').DataTable();
