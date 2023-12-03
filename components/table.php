@@ -33,8 +33,8 @@ if ($user["role"] == $ADMIN) {
                     <td><?= $row['EmployeeEmail'] ?></td>
                     <?php if ($admin): ?>
                         <td class="d-flex gap-2">
-                            <a class="btn btn-outline-warning" href="?token=<?php echo $row['EmployeeID'] ?>">Edit</a>
-                            <a class="btn btn-outline-danger"
+                            <a class="btn btn-warning" href="?token=<?php echo $row['EmployeeID'] ?>">Edit</a>
+                            <a class="btn btn-danger"
                                href="../delete.php?token=<?php echo $row['EmployeeID'] ?>">Delete</a>
                         </td>
                     <?php endif ?>
