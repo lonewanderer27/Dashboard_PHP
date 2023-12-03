@@ -110,7 +110,7 @@ if (isset($id)) {
             </div>
             <div class="d-flex justify-content-center">
                 <button class="btn me-2 <?= (isset($id)) ? 'btn-warning' : 'btn-primary' ?>">
-                    <?= (isset($id)) ? 'UPDATE' : 'SAVE' ?>
+                    <?= (isset($id)) ? 'SAVE RECORD' : 'ADD RECORD' ?>
                 </button>
                 <?php if (isset($id)): ?>
                     <a class="btn btn-primary me-2" href="/index.php">
