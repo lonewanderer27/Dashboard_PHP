@@ -1,5 +1,5 @@
 <?php
-global $cn, $ROLE, $ADMIN, $AD_ADDRESS, $AD_EMAIL, $AD_PASSWORD, $AD_PHONE, $EMAIL, $PASSWORD, $PHONE, $ADDRESS, $APPROVED;
+global $cn, $ROLE, $ADMIN, $AD_FULLNAME, $AD_ADDRESS, $AD_EMAIL, $AD_PASSWORD, $AD_PHONE, $EMAIL, $PASSWORD, $FULLNAME, $PHONE, $ADDRESS, $APPROVED;
 
 // check if there's already an admin
 $stmt = $cn->prepare("SELECT * FROM users WHERE $ROLE = ?");
@@ -13,10 +13,10 @@ if ($rs->num_rows == 0) {
 
     // no admin found! create one
     // hash the password
-    $stmt2 = $cn->prepare("INSERT INTO users ($EMAIL, $PASSWORD, $PHONE, $ADDRESS, $ROLE, $APPROVED) VALUES (?, SHA2(?, 256), ?, ?, ?, ?)");
+    $stmt2 = $cn->prepare("INSERT INTO users ($EMAIL, $PASSWORD, $FULLNAME, $PHONE, $ADDRESS, $ROLE, $APPROVED) VALUES (?, SHA2(?, 256), ?, ?, ?, ?, ?)");
     $role = $ADMIN;
     $approved = 1;
-    $stmt2->bind_param("ssssss", $AD_EMAIL, $AD_PASSWORD, $AD_PHONE, $AD_ADDRESS, $role, $approved);
+    $stmt2->bind_param("sssssss", $AD_EMAIL, $AD_PASSWORD, $AD_FULLNAME, $AD_PHONE, $AD_ADDRESS, $role, $approved);
     $stmt2->execute();
 
     if ($stmt2->error) {

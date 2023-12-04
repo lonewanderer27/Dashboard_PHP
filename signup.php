@@ -6,7 +6,7 @@ include 'constants.php';
 session_start();
 //var_dump($_SESSION);
 
-global $cn, $USERNAME, $PASSWORD, $EMAIL, $PHONE, $ADDRESS, $ROLE, $APPROVED, $USER, $ADMIN;
+global $cn, $USERNAME, $PASSWORD, $EMAIL, $PHONE, $ADDRESS, $ROLE, $APPROVED, $USER, $ADMIN, $FULLNAME;
 
 // Check if the user is already authenticated using the session
 if (isset($_SESSION[$EMAIL])) {
@@ -17,6 +17,7 @@ if (isset($_SESSION[$EMAIL])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // fetch email and password from $_POST
     $email = $_POST[$EMAIL];
+    $fullname = $_POST[$FULLNAME];
     $password = $_POST[$PASSWORD];
     $phone = $_POST[$PHONE];
     $address = $_POST[$ADDRESS];
@@ -32,10 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // if user is null, then we can create a new user!
     if (!$user) {
         // insert the new user into the database
-        $stmt = $cn->prepare("INSERT INTO users ($EMAIL, $PASSWORD, $PHONE, $ADDRESS, $ROLE, $APPROVED) VALUES (?, SHA2(?, 256), ?, ?, ?, ?)");
+        $stmt = $cn->prepare("INSERT INTO users ($EMAIL, $PASSWORD, $FULLNAME, $PHONE, $ADDRESS, $ROLE, $APPROVED) VALUES (?, SHA2(?, 256), ?, ?, ?, ?, ?)");
         $role = $USER;
         $approved = 0;
-        $stmt->bind_param("sssssi", $email, $password, $phone, $address, $role, $approved);
+        $stmt->bind_param("ssssssi", $email, $password, $fullname, $phone, $address, $role, $approved);
         $stmt->execute();
 
         // set the cookie and redirect to index.php
@@ -73,50 +74,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-    <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card border-0 shadow rounded-3 my-5">
-                <div class="card-body p-4 p-sm-5">
-                    <?php include('components/alert.php') ?>
-                    <h3 class="card-title text-center mb-5 fw-light">Sign Up</h3>
-                    <form>
-                        <div class="form-floating mb-3">
-                            <input name="email" type="email" class="form-control" id="floatingInput"
-                                   placeholder="name@example.com" required>
-                            <label for="floatingInput">Email address</label>
+
+    <section class="vh-100" style="background-color: #9A616D;">
+        <div class="container py-5 h-150">
+            <div class="row d-flex justify-content-center align-items-center h-150">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <img src="assetd/employee.webp"
+                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;"/>
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
+                                    <?php include 'components/alert.php'; ?>
+                                    <form>
+                                        <h5 class="h2 mb-3 pb-3" style="letter-spacing: 1px;">Create your own account</h5>
+
+                                        <div class="form-outline mb-3">
+                                            <input name="email" type="email" id="form2Example17"
+                                                   class="form-control form-control-lg" placeholder="Enter Email Address"/>
+                                        </div>
+
+                                        <div class="form-outline mb-3">
+                                            <input name="password" type="password" id="form2Example27"
+                                                   class="form-control form-control-lg"  placeholder="Enter Password"/>
+                                        </div>
+
+                                        <div class="form-outline mb-3">
+                                            <input name="fullname" type="text" id="form2Example27"
+                                                   class="form-control form-control-lg" placeholder="Enter Full Name" required/>
+                                        </div>
+
+                                        <div class="form-outline mb-3">
+                                            <input name="phone" type="number" id="form2Example27"
+                                                   class="form-control form-control-lg" placeholder="Enter Phone Number" required/>
+                                        </div>
+
+                                        <div class="form-outline mb-3">
+                                            <input name="address" type="text" id="form2Example27"
+                                                   class="form-control form-control-lg" placeholder="Enter Address" required/>
+                                        </div>
+
+                                        <div class="pt-1 mb-4">
+                                            <button class="btn btn-dark btn-lg btn-block" type="submit">Signup</button>
+                                        </div>
+
+                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Already have an account? <a
+                                                    href="login.php"
+                                                    style="color: #393f81;">Login here</a></p>
+                                    </form>
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input name="password" type="password" class="form-control" id="floatingPassword"
-                                   placeholder="Password" required>
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="full_name" type="text" class="form-control" id="full_name"
-                                   placeholder="Full Name" required>
-                            <label for="full_name">Full Name</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="address" type="text" class="form-control" id="address"
-                                   placeholder="Address" required>
-                            <label for="address">Address</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input name="phone" type="text" class="form-control" id="phone"
-                                   placeholder="phone" required>
-                            <label for="phone">Phone</label>
-                        </div>
-                        <div class="d-grid">
-                            <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold" type="submit">Sign Up
-                            </button>
-                        </div>
-                        <div class="mt-3 text-center">
-                            <p>Already have an account? <a href="login.php">Login</a></p>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </form>
 </body>
 </html>
