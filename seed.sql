@@ -1,5 +1,5 @@
 -- CREATE RECORDS DATABASE
-CREATE DATABASE records;
+CREATE DATABASE records2;
 
 -- CREATE USERS TABLE
 CREATE TABLE `users`
@@ -31,7 +31,7 @@ CREATE TABLE `employees`
 CREATE USER 'seed'@'%' IDENTIFIED BY 'seed';
 
 -- Grant superuser permissions (all privileges) for the 'employees' & 'users' database to the 'seed' user
-GRANT ALL PRIVILEGES ON records.* TO 'seed'@'%';
+GRANT ALL PRIVILEGES ON records2.* TO 'seed'@'%';
 GRANT ALL PRIVILEGES ON employees.* TO 'seed'@'%';
 
 -- Optionally, you can also flush privileges to apply the changes immediately

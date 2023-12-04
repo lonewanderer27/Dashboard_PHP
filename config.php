@@ -10,7 +10,7 @@ if (file_exists('.env')) {
 $user = getenv('DB_USER') ?: 'root';
 $pass = getenv('DB_PASS') ?: '';
 $hostname = getenv('DB_HOST') ?: 'database';
-$db = getenv('DB_NAME') ?: 'records';
+$db = getenv('DB_NAME') ?: 'records2';
 $port = getenv('DB_PORT') ?: 3306;
 
 $cn = new mysqli($hostname, $user, $pass, $db, $port);
