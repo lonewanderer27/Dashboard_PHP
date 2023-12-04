@@ -79,6 +79,7 @@ if (isset($id)) {
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles.css"/>
     <script defer src="./script.js"></script>
 </head>
@@ -131,6 +132,8 @@ if (isset($id)) {
                     </div>
                 </form>
             </div>
+        <?php elseif ($user[$ROLE] === $USER): ?>
+            <?php include('components/profile.php') ?>
         <?php endif; ?>
     </div>
 </div>
