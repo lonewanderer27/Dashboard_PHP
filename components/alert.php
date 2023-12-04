@@ -56,7 +56,7 @@ global $cn, $AD_EMAIL, $AD_PASSWORD;
     </div>
 <?php elseif (isset($_GET['adminCreated'])): ?>
     <div class="alert alert-success alert-dismissible fade show my-3" role="alert">
-        Default admin account has been created!<br><br>Email: <?= $AD_EMAIL ?><br>Password: <?= $AD_PASSWORD ?>
+        Default admin account has been created! You may not login using these credentials<br><br>Email: <?= $AD_EMAIL ?><br>Password: <?= $AD_PASSWORD ?>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <?php elseif (isset($_GET['adminError'])): ?>
