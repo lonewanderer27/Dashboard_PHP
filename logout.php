@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['logout'])) {
+if (isset($_POST['logout'])) {
     include('config.php');
     global $cn;
 
