@@ -18,12 +18,14 @@ global $user, $EMAIL;
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $user[$EMAIL] ?>
                     </a>
-                    <a name="logout" style="display: none;"></a>
+                    <input style="display: none" name="logout" value="true" />
                     <!-- Here's the magic. Add the .animate and .slideIn classes to your .dropdown-menu and you're all set! -->
                     <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
                         <!--                        <a class="dropdown-item" href="../profile.php">Profile</a>-->
                         <!--                        <div class="dropdown-divider"></div>-->
-                        <button type="submit" class="dropdown-item">Logout</button>
+                        <button type="submit" class="dropdown-item">
+                            Logout
+                        </button>
                     </div>
                 </li>
             </ul>
